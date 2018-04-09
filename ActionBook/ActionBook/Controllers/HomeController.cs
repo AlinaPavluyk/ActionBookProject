@@ -17,7 +17,7 @@ namespace ActionBook.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.adfgdfgfdhfdyjdfgy";
+            ViewData["Message"] = "Your application description page.";
 
             return View();
         }
