@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ActionBook.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ActionBook
 {
@@ -22,6 +20,12 @@ namespace ActionBook
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=master;Trusted_Connection=True;ConnectRetryCount=0";
+
+            services.AddDbContext<MasterContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,5 +50,7 @@ namespace ActionBook
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+
     }
 }
