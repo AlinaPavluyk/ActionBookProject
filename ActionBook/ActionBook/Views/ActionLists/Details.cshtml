@@ -1,0 +1,109 @@
+﻿@model ActionBook.Models.ActionLists
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ActionLists</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image4)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image4)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Text1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Text1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Text2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Text2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Text3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Text3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Text4)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Text4)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ListType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ListType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ActionBook)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActionBook.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choise1Navigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choise1Navigation.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choise2Navigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choise2Navigation.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choise3Navigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choise3Navigation.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Choise4Navigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Choise4Navigation.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
