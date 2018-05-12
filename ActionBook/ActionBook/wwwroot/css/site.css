@@ -33,3 +33,16 @@
         display: none;
     }
 }
+.page {
+    background: #737373;
+    float: left;
+    position: relative;
+    width: 30%;
+    padding-bottom: 30%;
+    margin: 1.66%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
