@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ActionBook.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace ActionBook.Controllers
 {
@@ -64,10 +66,15 @@ namespace ActionBook.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ActionBookId,Name,Image1,Image2,Image3,Image4,Text1,Text2,Text3,Text4,Choise1,Choise2,Choise3,Choise4,ListType")] ActionLists actionLists)
+        public async Task<IActionResult> Create([Bind("Id,ActionBookId,Name,Image1,Image2,Image3,Image4,Text1,Text2,Text3,Text4,Choise1,Choise2,Choise3,Choise4,ListType")] ActionLists actionLists, List<IFormFile> Image1, List<IFormFile> Image2, List<IFormFile> Image3, List<IFormFile> Image4)
         {
             if (ModelState.IsValid)
             {
+                actionLists.Image1 = getFileBytes(Image1).Result;
+                actionLists.Image2 = getFileBytes(Image2).Result;
+                actionLists.Image3 = getFileBytes(Image3).Result;
+                actionLists.Image4 = getFileBytes(Image4).Result;
+
                 _context.Add(actionLists);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -178,6 +185,23 @@ namespace ActionBook.Controllers
         private bool ActionListsExists(int id)
         {
             return _context.ActionLists.Any(e => e.Id == id);
+        }
+
+        private async Task<byte[]> getFileBytes(List<IFormFile> file)
+        {
+            foreach (var item in file)
+            {
+                if (item.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await item.CopyToAsync(stream);
+                        return stream.ToArray();
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }
