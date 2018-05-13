@@ -39,6 +39,24 @@ namespace ActionBook.Controllers
 
             return View();
         }
+        public IActionResult Type3()
+        {
+            ViewData["Message"] = "Your application .";
+
+            return View();
+        }
+        public IActionResult Type2()
+        {
+            ViewData["Message"] = "Your application .";
+
+            return View();
+        }
+        public IActionResult Type1()
+        {
+            ViewData["Message"] = "Your application .";
+
+            return View();
+        }
 
 
     }
