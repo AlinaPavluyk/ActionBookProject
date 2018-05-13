@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="POST" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="ActionBookId" class="control-label"></label>
@@ -24,22 +24,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="Image1" class="control-label"></label>
-                <input asp-for="Image1" class="form-control" />
+                <input asp-for="Image1" type="file" class="form-control" />
                 <span asp-validation-for="Image1" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Image2" class="control-label"></label>
-                <input asp-for="Image2" class="form-control" />
+                <input asp-for="Image2" type="file" class="form-control" />
                 <span asp-validation-for="Image2" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Image3" class="control-label"></label>
-                <input asp-for="Image3" class="form-control" />
+                <input asp-for="Image3" type="file" class="form-control" />
                 <span asp-validation-for="Image3" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Image4" class="control-label"></label>
-                <input asp-for="Image4" class="form-control" />
+                <input asp-for="Image4" type="file" class="form-control" />
                 <span asp-validation-for="Image4" class="text-danger"></span>
             </div>
             <div class="form-group">
