@@ -6,14 +6,23 @@
 
   <ItemGroup>
     <Compile Remove="Data\**" />
+    <Compile Remove="Images\**" />
+    <Compile Remove="Style\**" />
     <Content Remove="Data\**" />
+    <Content Remove="Images\**" />
+    <Content Remove="Style\**" />
     <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <EmbeddedResource Remove="Style\**" />
     <None Remove="Data\**" />
+    <None Remove="Images\**" />
+    <None Remove="Style\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
@@ -31,11 +40,6 @@
     <Content Update="wwwroot\images\symb3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Images\" />
-    <Folder Include="Style\" />
   </ItemGroup>
 
   <ItemGroup>
