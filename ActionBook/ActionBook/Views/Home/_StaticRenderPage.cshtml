@@ -1,27 +1,85 @@
-﻿
+﻿@model ActionBook.Models.ActionBooks
 @{
     
 }
-<div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close" type="button" data-dismiss="modal">×</button>
-                <div class="pagination pagination-centered">
-                    <div class="pagination pagination-centered">
-                        <h2 class="modal-title">Type of list<img src="~/images/symb.png" class="img-rounded"></h2>
-                    </div>
-                </div>
+
+
+<form id="choose">
+    <div class="modal-header">
+        <button class="close" type="button" data-dismiss="modal">×</button>
+        <div class="pagination pagination-centered">
+            <div class="pagination pagination-centered">
+                <h2 class="modal-title">Type of list<img src="~/images/symb.png" class="img-rounded"></h2>
             </div>
-                <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Type1">This is a simple list</a>
-                <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Type2">Choise between 2</a>
-                <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Type3">Choise between 3</a>
-                <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Type4">Choise between 4</a>
-                <p>
-                </p>
-            </div>
+        </div>
     </div>
-</div>
+
+    <input asp-for="Id" id="actionBookId" type="text" value="@Model.Id" style="display: none" />
+    <input asp-for="Name" id="actionBookName" type="text" value="@Model.Name" style="display: none" />
+    <input type="button" id="select1" class="btn btn-primary" value="This is a simple list"></input>
+    <input type="button" id="select2" class="btn btn-primary" value="Choise between 2"></input>
+    <input type="button" id="select3" class="btn btn-primary" value="Choise between 3"></input>
+    <input type="button" id="select4" class="btn btn-primary" value="Choise between 4"></input>
+    <p>
+    </p>
+</form>
+            
+
+
+
+<script>
+    $('#select1')
+        .click(function (e) {
+            $.ajax({
+                url: "/Home/Type1",
+                type: 'POST',
+                data: $('#choose').serialize(),
+                async: 'true',
+                success: function (result) {
+                    $("body").html(result);
+                }
+            });
+        });
+
+    $('#select2')
+        .click(function (e) {
+            $.ajax({
+                url: "/Home/Type2",
+                type: 'POST',
+                data: $('#choose').serialize(),
+                async: 'true',
+                success: function (result) {
+                    $("body").html(result);
+                }
+            });
+        });
+
+    $('#select3')
+        .click(function (e) {
+            $.ajax({
+                url: "/Home/Type3",
+                type: 'POST',
+                data: $('#choose').serialize(),
+                async: 'true',
+                success: function (result) {
+                    $("body").html(result);
+                }
+            });
+        });
+
+    $('#select4')
+        .click(function (e) {
+            $.ajax({
+                url: "/Home/Type4",
+                type: 'POST',
+                data: $('#choose').serialize(),
+                async: 'true',
+                success: function(result) {
+                    $("body").html(result);
+                }
+            });
+        });
+</script>
 
                 
 

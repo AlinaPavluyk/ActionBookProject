@@ -1,0 +1,6 @@
+﻿@model ActionBook.Models.ActionBooks
+
+<input type="text" value ="@Model.Id" style="display: none" />
+<button id="goToCreatingList" type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal" style="display: none">Next</button>
+@Html.Partial("~/Views/Home/_StaticRenderPage.cshtml")
+
